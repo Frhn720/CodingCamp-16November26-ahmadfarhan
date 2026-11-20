@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <main class="dashboard">
+    <header>
+      <p class="brand">Life Dashboard</p>
+      <button type="button" id="theme" class="secondary" aria-pressed="false">Mode gelap</button>
+    </header>
+    <section class="hero" aria-labelledby="greeting">
+      <div>
+        <p id="date"></p>
+        <h1 id="greeting"></h1>
+        <details>
+          <summary>Ubah nama sapaan</summary>
+          <form id="name-form">
+            <label for="name">Nama</label>
+            <div class="row">
+              <input id="name" maxlength="40" placeholder="Nama panggilan">
+              <button>Simpan</button>
+            </div>
+          </form>
+        </details>
+      </div>
+      <time id="clock" aria-label="Waktu setempat"></time>
+    </section>
+    <p id="storage-status" role="status" hidden></p>
+    <div class="columns">
+      <section class="card tasks" aria-labelledby="tasks-title">
+        <div class="section-heading">
+          <h2 id="tasks-title">Daftar tugas</h2>
+          <p id="task-count"></p>
+        </div>
+        <form id="task-form">
+          <label for="task-input">Tugas baru</label>
+          <div class="row">
+            <input id="task-input" required maxlength="120" placeholder="Apa yang perlu dikerjakan?">
+            <button>Tambah</button>
+          </div>
+        </form>
+        <p id="task-status" class="status" role="status"></p>
+        <ul id="task-list"></ul>
+      </section>
+      <div class="side">
+        <section class="card focus" aria-labelledby="timer-title">
+          <h2 id="timer-title">Timer fokus</h2>
+          <p id="timer" role="timer">25:00</p>
+          <progress id="progress" value="0" max="1500000" aria-label="Progres sesi fokus"></progress>
+          <div class="timer-controls">
+            <button type="button" id="start">Mulai</button>
+            <button type="button" id="stop" class="secondary" disabled>Jeda</button>
+            <button type="button" id="reset" class="secondary">Reset</button>
+          </div>
+          <p id="timer-status" class="status" role="status"></p>
+        </section>
+        <section class="card" aria-labelledby="links-title">
+          <h2 id="links-title">Tautan cepat</h2>
+          <ul id="link-list"></ul>
+          <details>
+            <summary>Tambah tautan</summary>
+            <form id="link-form">
+              <label for="link-name">Nama situs</label>
+              <input id="link-name" required maxlength="40" placeholder="Contoh: GitHub">
+              <label for="link-url">Alamat situs</label>
+              <input id="link-url" required maxlength="2048" placeholder="https://github.com" inputmode="url">
+              <button>Simpan tautan</button>
+            </form>
+          </details>
+          <p id="link-status" class="status" role="status"></p>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
